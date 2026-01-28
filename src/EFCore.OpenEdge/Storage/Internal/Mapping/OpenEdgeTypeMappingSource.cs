@@ -43,13 +43,15 @@ namespace EntityFrameworkCore.OpenEdge.Storage.Internal.Mapping
          *   4) ODBC driver sends properly formatted value to OpenEdge
          */
         private readonly DateTimeTypeMapping _datetime = new DateTimeTypeMapping("datetime", DbType.DateTime);
-        private readonly DateTimeOffsetTypeMapping _datetimeOffset = new DateTimeOffsetTypeMapping("datetime-tz", DbType.DateTimeOffset);
+        //private readonly DateTimeOffsetTypeMapping _datetimeOffset = new DateTimeOffsetTypeMapping("datetime-tz", DbType.DateTimeOffset);
+        private readonly DateTimeOffsetTypeMapping _datetimeOffset = new DateTimeOffsetTypeMapping("timestamp_timezone", DbType.String);
         private readonly OpenEdgeTimestampTimezoneTypeMapping _timestampTimezone = new OpenEdgeTimestampTimezoneTypeMapping("timestamp_timezone", DbType.DateTimeOffset);
         private readonly DateTimeTypeMapping _timeStamp = new DateTimeTypeMapping("timestamp", DbType.DateTime);
         private readonly TimeSpanTypeMapping _time = new TimeSpanTypeMapping("time", DbType.Time);
         private readonly OpenEdgeDateOnlyTypeMapping _dateOnly = new OpenEdgeDateOnlyTypeMapping("date", DbType.Date);
 
-        private readonly OpenEdgeBoolTypeMapping _boolean = new OpenEdgeBoolTypeMapping();
+        //private readonly OpenEdgeBoolTypeMapping _boolean = new OpenEdgeBoolTypeMapping();
+        private readonly BoolTypeMapping _boolean = new BoolTypeMapping("bit", DbType.Boolean);
         private readonly ShortTypeMapping _smallint = new ShortTypeMapping("smallint", DbType.Int16);
         private readonly ByteTypeMapping _tinyint = new ByteTypeMapping("tinyint", DbType.Byte);
         private readonly IntTypeMapping _integer = new IntTypeMapping("integer", DbType.Int32);
@@ -82,7 +84,8 @@ namespace EntityFrameworkCore.OpenEdge.Storage.Internal.Mapping
                     { typeof(byte), _tinyint },
                     { typeof(byte[]), _binary},
                     { typeof(double), _double },
-                    { typeof(DateTimeOffset), _datetimeOffset  },
+                    //{ typeof(DateTimeOffset), _datetimeOffset  },
+                    { typeof(DateTimeOffset), _timestampTimezone /* _datetimeOffset */ },
                     { typeof(short), _smallint },
                     { typeof(float), _float },
                     { typeof(decimal), _decimal },

@@ -188,32 +188,32 @@ namespace EntityFrameworkCore.OpenEdge.Query.Sql.Internal
             // They must be wrapped in CASE statements: CASE WHEN condition THEN 1 ELSE 0 END
             if (projectionExpression.Expression.Type == typeof(bool))
             {
-                Sql.Append("CASE WHEN ");
-                
-                // If it's already a comparison expression, use it as-is
-                // Otherwise, we need to compare it with 1 (for boolean columns stored as integers)
-                if (projectionExpression.Expression is SqlBinaryExpression)
-                {
-                    Visit(projectionExpression.Expression);
-                }
-                else
-                {
-                    Visit(projectionExpression.Expression);
-                    Sql.Append(" = 1");
-                }
-                
-                Sql.Append(" THEN 1 ELSE 0 END");
-                
-                // Handle alias if present
-                if (!string.IsNullOrEmpty(projectionExpression.Alias))
-                {
-                    Sql.Append(" AS ");
-                    Sql.Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(projectionExpression.Alias));
-                }
-                
-                return projectionExpression;
+                // Sql.Append("CASE WHEN ");
+                // 
+                // // If it's already a comparison expression, use it as-is
+                // // Otherwise, we need to compare it with 1 (for boolean columns stored as integers)
+                // if (projectionExpression.Expression is SqlBinaryExpression)
+                // {
+                //     Visit(projectionExpression.Expression);
+                // }
+                // else
+                // {
+                //     Visit(projectionExpression.Expression);
+                //     Sql.Append(" = 1");
+                // }
+                // 
+                // Sql.Append(" THEN 1 ELSE 0 END");
+                // 
+                // // Handle alias if present
+                // if (!string.IsNullOrEmpty(projectionExpression.Alias))
+                // {
+                //     Sql.Append(" AS ");
+                //     Sql.Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(projectionExpression.Alias));
+                // }
+                // 
+                // return projectionExpression;
             }
-            
+
             // For non-boolean expressions, use the base implementation
             return base.VisitProjection(projectionExpression);
         }

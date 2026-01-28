@@ -7,8 +7,8 @@
     <LangVersion>latest</LangVersion>
     <Authors>Ernests Rudzitis</Authors>
     <Description>An extended and modernized Entity Framework Core provider for Progress OpenEdge databases, supporting EF Core 9</Description>
-    <PackageProjectUrl>https://github.com/erudzitis/EntityFrameworkCore.OpenEdge</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/erudzitis/EntityFrameworkCore.OpenEdge</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/RichardBrookhuis/EntityFrameworkCore.OpenEdge</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RichardBrookhuis/EntityFrameworkCore.OpenEdge</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>openedge;progress;Entity Framework Core;entity-framework-core;ef;efcore;orm;sql;extended</PackageTags>
   </PropertyGroup>
@@ -17,23 +17,27 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>9.0.7</Version>
+    <Version>9.0.8</Version>
     <PackageReleaseNotes>
-      - Version 9.0.7
-        - Extended support for datetimezone type
-        - Fixed inline fetch/offset statements being cached incorrectly
+        - Version 9.0.8
+        - Fixed support for datetime-tz
+		- Fixed support for boolean type, which is sql type BIT in OpenEdge
 
-      - Version 9.0.6
-        - Fixed issue with boolean comparison not being translated correctly in some cases
-        - Added support for DateOnly type in queries
+		- Version 9.0.7
+		- Extended support for datetimezone type
+		- Fixed inline fetch/offset statements being cached incorrectly
 
-      - Version 9.0.5
-        - Added support for DateOnly type. This ensures that OpenEdge DATE columns are mapped to DateOnly type in EF Core.
+		- Version 9.0.6
+		- Fixed issue with boolean comparison not being translated correctly in some cases
+		- Added support for DateOnly type in queries
 
-      - Version 9.0.4
-        - Fixed issue with OFFSET/FETCH parameters not being inlined correctly in complex queries
-        - Added support for nested queries with Skip/Take
-    </PackageReleaseNotes>
+		- Version 9.0.5
+		- Added support for DateOnly type. This ensures that OpenEdge DATE columns are mapped to DateOnly type in EF Core.
+
+		- Version 9.0.4
+		- Fixed issue with OFFSET/FETCH parameters not being inlined correctly in complex queries
+		- Added support for nested queries with Skip/Take
+	</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
